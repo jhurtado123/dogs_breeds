@@ -52,10 +52,24 @@ export const getDogsBreeds = () => {
     dispatch(fetchDogBreeds());
     try {
       const {data: {message}} = await dogsApiClient.getAllDogBreeds();
-      const parsedBreeds = Object.keys(message).map(breed => ({name: breed, availableImages: 0}));
+
+      const parsedBreeds = await Promise.all(Object.keys(message).map(breed => {
+        return getImageCountForEachBreed(breed)
+          .then(count => ({name: breed, availableImages: count }));
+      }));
+
       dispatch(receiveSuccess(parsedBreeds));
     } catch (e) {
       dispatch(receivedError());
     }
   };
 };
+
+async function getImageCountForEachBreed(breed) {
+  try {
+    const {data: {message}} = await dogsApiClient.getImagesFromBreed(breed);
+    return message ? message.length : 0;
+  } catch (e) {
+    return -1;
+  }
+}
