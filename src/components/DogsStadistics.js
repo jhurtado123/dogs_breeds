@@ -1,8 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import {getDogsBreeds} from "../reducers/dogsReducer";
+import StadisticsHeader from "./StadisticsHeader";
+import StadisticsBody from "./StadisticsBody";
 
 function DogsStadistics({dispatch, isLoading}) {
+
+  const [view, changeView] = useState('all');
 
   useEffect(() => {
     dispatch(getDogsBreeds());
@@ -10,7 +14,9 @@ function DogsStadistics({dispatch, isLoading}) {
 
   return (
       <div className="dogs-stadistics-wrapper">
-        {isLoading ? 'loading' : ''}
+        <StadisticsHeader changeView={changeView} />
+
+        { isLoading ? 'loading' : <StadisticsBody/> }
       </div>
   );
 }
