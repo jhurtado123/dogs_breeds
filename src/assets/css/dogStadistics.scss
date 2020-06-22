@@ -1,0 +1,13 @@
+.dogs-stadistics-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  overflow: hidden;
+
+  .info-text {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+}
