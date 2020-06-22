@@ -1,5 +1,5 @@
 # Readme
-
+Small React app that shows a pie chart with the dogs with more images on the api database.
 
 ## Installation instructions
  - Download this repo and point to master branch
