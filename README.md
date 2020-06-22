@@ -1,6 +1,5 @@
 # Readme
-Small react app that shows a data table and allows user to select or unselect rows.
-Users and selected rows are saved in a redux store.
+
 
 ## Installation instructions
  - Download this repo and point to master branch
