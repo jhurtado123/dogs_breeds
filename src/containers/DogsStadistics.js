@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
 import {getDogsBreeds} from "../reducers/dogsReducer";
-import StadisticsHeader from "./StadisticsHeader";
-import StadisticsBody from "./StadisticsBody";
+import StadisticsHeader from "../components/StadisticsHeader";
+import StadisticsBody from "../components/StadisticsBody";
 import '../assets/css/dogStadistics.scss';
+import LoadingBars from "../components/LoadingBars";
 
 
 function DogsStadistics({dispatch, isLoading, dogBreeds}) {
@@ -26,7 +27,10 @@ function DogsStadistics({dispatch, isLoading, dogBreeds}) {
   return (
       <div className="dogs-stadistics-wrapper">
         <StadisticsHeader changeView={changeView} currentView={view} />
-        { isLoading ? 'loading' : <StadisticsBody data={getDataToPrint()}/> }
+        { isLoading ? <LoadingBars/> : <StadisticsBody data={getDataToPrint()}/> }
+        <div className={'info-text'}>
+          * Number of images for each dog breed
+        </div>
       </div>
   );
 }

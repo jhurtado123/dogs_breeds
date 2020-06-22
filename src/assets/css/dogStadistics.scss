@@ -4,4 +4,10 @@
   display: flex;
   flex-flow: column;
   overflow: hidden;
+
+  .info-text {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
 }

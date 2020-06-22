@@ -16,7 +16,7 @@ function StadisticsBody({data}) {
                return (
                  <text x={x} y={y} fill="#000" textAnchor={x > cx ? "start" : "end"} dominantBaseline="central"
                        fontSize={12}>
-                   {data[index].name} ({value})
+                   {data[index].name}
                  </text>
                );
              }}/>

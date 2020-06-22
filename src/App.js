@@ -4,7 +4,7 @@ import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {dogsReducer} from "./reducers/dogsReducer";
 import thunk from "redux-thunk";
-import DogsStadistics from "./components/DogsStadistics";
+import DogsStadistics from "./containers/DogsStadistics";
 
 const store = createStore(dogsReducer, applyMiddleware(thunk));
 
