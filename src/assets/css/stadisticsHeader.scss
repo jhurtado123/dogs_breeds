@@ -1,0 +1,18 @@
+.stadistics-header {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+
+  div.block {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 0 15px;
+    cursor: pointer;
+    &.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
